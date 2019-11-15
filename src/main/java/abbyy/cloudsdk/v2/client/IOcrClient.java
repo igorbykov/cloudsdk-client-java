@@ -1,3 +1,17 @@
+// Copyright © 2019 ABBYY Production LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package abbyy.cloudsdk.v2.client;
 
 import abbyy.cloudsdk.v2.client.models.Application;
@@ -89,7 +103,7 @@ public interface IOcrClient {
      * @return {@link TaskInfo}
      */
     CompletableFuture<TaskInfo> processTextFieldAsync(TextFieldProcessingParams parameters, FileInputStream fileStream,
-                                           String fileName, boolean waitTaskFinished);
+                                                      String fileName, boolean waitTaskFinished);
 
     /**
      * The method allows you to extract the value of a barcode on an image. The method loads the image, creates a processing task for
@@ -108,7 +122,7 @@ public interface IOcrClient {
      * @return {@link TaskInfo}
      */
     CompletableFuture<TaskInfo> processBarcodeFieldAsync(BarcodeFieldProcessingParams parameters, FileInputStream fileStream,
-                                           String fileName, boolean waitTaskFinished);
+                                                         String fileName, boolean waitTaskFinished);
 
 
     /**
@@ -125,7 +139,7 @@ public interface IOcrClient {
      * @return {@link TaskInfo}
      */
     CompletableFuture<TaskInfo> processCheckmarkFieldAsync(CheckmarkFieldProcessingParams parameters, FileInputStream fileStream,
-                                              String fileName, boolean waitTaskFinished);
+                                                           String fileName, boolean waitTaskFinished);
 
     /**
      * The method allows you to recognize several fields in a document. The method starts the processing task with the parameters of processing
@@ -148,7 +162,7 @@ public interface IOcrClient {
      * @return {@link TaskInfo}
      */
     CompletableFuture<TaskInfo> processFieldsAsync(FieldsProcessingParams parameters, FileInputStream fileStream,
-                                                String fileName, boolean waitTaskFinished);
+                                                   String fileName, boolean waitTaskFinished);
 
     /**
      * This method finds a machine-readable zone on the image and extracts data from it. Machine-readable zone(MRZ) is typically found on
@@ -167,7 +181,7 @@ public interface IOcrClient {
      * @return {@link TaskInfo}
      */
     CompletableFuture<TaskInfo> processMrzAsync(MrzProcessingParams parameters, FileInputStream fileStream,
-                                        String fileName, boolean waitTaskFinished);
+                                                String fileName, boolean waitTaskFinished);
 
     /**
      * Important: the technology fully supports the receipts issued in USA and France, other countries are currently supported in beta mode.
@@ -187,7 +201,7 @@ public interface IOcrClient {
      * @return {@link TaskInfo}
      */
     CompletableFuture<TaskInfo> processReceiptAsync(ReceiptProccessingParams parameters, FileInputStream fileStream,
-                                     String fileName, boolean waitTaskFinished);
+                                                    String fileName, boolean waitTaskFinished);
 
     /**
      * The method returns the current status of the task and the URL of the result of processing for completed tasks.

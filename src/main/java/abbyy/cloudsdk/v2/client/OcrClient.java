@@ -1,3 +1,17 @@
+// Copyright © 2019 ABBYY Production LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package abbyy.cloudsdk.v2.client;
 
 import abbyy.cloudsdk.v2.client.http.HttpAsyncClient;
@@ -188,7 +202,7 @@ public class OcrClient implements IOcrClient {
                 throw new ApiException(
                         "Could not deserialize the response body.",
                         response.getStatusCode(),
-                        abbyy.cloudsdk.v2.client.models.Error.fromText(responseData),
+                        Error.fromText(responseData),
                         response.getHeaders(),
                         exception);
             }
@@ -212,10 +226,10 @@ public class OcrClient implements IOcrClient {
         return CompletableFuture.completedFuture(taskInfo);
     }
 
-    private abbyy.cloudsdk.v2.client.models.Error tryDeserializeError(String responseData) {
+    private Error tryDeserializeError(String responseData) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(responseData, abbyy.cloudsdk.v2.client.models.Error.class);
+            return mapper.readValue(responseData, Error.class);
         }
         catch (Exception e) {
             return Error.fromText(responseData);
